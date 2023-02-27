@@ -84,11 +84,11 @@
   height: 437rpx;
 }
 .trafficsign_image{
-  width: 154rpx;
-  height: 154rpx;
+  width: 130rpx;
+  height: 130rpx;
 }
 .trafficsign_text{
-  margin:0 auto;
+  margin:5px auto;
   display: table;
 }
 .advertisement_image_box{

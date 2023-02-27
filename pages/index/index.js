@@ -1,24 +1,13 @@
 // index.js
 const app = getApp()
 Page({
-  
+  data:{
+    trafficsigntype:'',
+    materialimages:''
+  },
   onLoad(){
-    wx.cloud.callFunction({
-      name:"getCurrentUserName",
-      data:{
-        _id:app.globalData._id
-      }
-    })
-    .then(res=>{
-      console.log("当前用户的积分获取成功",res)
-      this.setData({
-        code:res.result.data
-
-      }) 
-    })
-    .catch(err=>{
-      console.log("当前用户的积分获取失败",err)
-    })
+    this.getType(),
+    this.getImages()
   },
   takePhoto() {
     const ctx = wx.createCameraContext()
@@ -57,6 +46,32 @@ Page({
   gotoexam(){
     wx.navigateTo({
       url: '/pages/exam/exam',
+    })
+  },
+  getType(){
+    wx.cloud.callFunction({
+      name: 'getType'
+    }).then(res =>{
+        console.log('获取交通标志类别云函数调用成功',res)
+        this.setData({
+          trafficsigntype: res.result.data
+        })
+        console.log(this.data)
+    }).catch(res=>{
+      console.log('失败',res)
+    })
+  },
+  getImages(){
+    wx.cloud.callFunction({
+      name: 'getImages'
+    }).then(res =>{
+        console.log('获取图片素材云函数调用成功',res)
+        this.setData({
+          materialimages: res.result.data
+        })
+        console.log(this.data)
+    }).catch(res=>{
+      console.log('失败',res)
     })
   },
 })
