@@ -1,0 +1,76 @@
+<view class="header">
+    <swiper class="banners" indicator-dots indicator-color="ivory" autoplay interval="3000" indicator-active-color="#d43c33">
+      <swiper-item>
+        <image src="/image/activities_1.png"></image>
+      </swiper-item>
+      <swiper-item>
+        <image src="/image/avtivities_2.png"></image>
+      </swiper-item>
+      <swiper-item>
+        <image src="/image/activities_3.png"></image>
+      </swiper-item>
+    </swiper>
+</view>
+<view class="body">
+  <view class="trafficsigncontainer">
+    <view class="trafficsign" bindtap="gotogoodsselect">
+      <view class="trafficsign_image_box">
+        <image class="trafficsign_image" src="/image/allcommodity.png"></image>
+      </view>
+      <text class="trafficsign_text">禁令标志</text>
+    </view>
+    <view class="trafficsign" bindtap="gotogoodsselect">
+      <view class="trafficsign_image_box">
+        <image class="trafficsign_image" src="/image/allcommodity.png"></image>
+      </view>
+      <text class="trafficsign_text">警告标志</text>
+    </view>
+    <view class="trafficsign" bindtap="gotogoodsselect">
+      <view class="trafficsign_image_box">
+        <image class="trafficsign_image" src="/image/allcommodity.png"></image>
+      </view>
+      <text class="trafficsign_text">指示标志</text>
+    </view>
+    <view class="trafficsign" bindtap="gotogoodsselect">
+      <view class="trafficsign_image_box">
+        <image class="trafficsign_image" src="/image/allcommodity.png"></image>
+      </view>
+      <text class="trafficsign_text">更多</text>
+    </view>
+   
+  </view>
+  <view class="advertisement">
+    <view class="discount" >
+      <camera device-position="back" flash="off" binderror="error" style="width: 80%; height: 200rpx;">
+      </camera>
+      <button type="primary" bindtap="takePhoto">拍照</button>
+      <view>预览</view>
+      <image mode="widthFix" src="{{src}}"></image>
+    </view>
+ 
+  </view>
+
+</view>
+<view class="footer">
+    <view>
+      <image src="/image/home.png" bindtap="gotoindex"></image>
+      <text>首页</text>
+    </view>
+    <view>
+      <image src="/image/allgoods.png" bindtap="gotoaccident"></image>
+      <text>真实案例</text>
+    </view>
+    <view>
+      <image src="/image/allgoods.png" bindtap="gotogift"></image>
+      <text>积分商城</text>
+    </view>
+    <view>
+      <image src="/image/dingdan.png" bindtap="gotoexam"></image>
+      <text>每日答题</text>
+    </view>
+    <view>
+      <image src="/image/me.png" bindtap="gotomy" data-user="{{code._id}}"></image>
+      <text>我的</text>
+    </view>
+</view>
+
