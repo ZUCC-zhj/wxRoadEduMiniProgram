@@ -24,12 +24,12 @@ Page({
     console.log(e.detail)
   },
   gotoaccident(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/accident/accident',
     })
   },
   gotomy(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/my/my',
     })
   },
@@ -39,12 +39,12 @@ Page({
     })
   },
   gotogift(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/gift/gift',
     })
   },
   gotoexam(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/exam/exam',
     })
   },

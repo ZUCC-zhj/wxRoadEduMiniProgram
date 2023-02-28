@@ -1,2 +1,28 @@
 <!--pages/exam/exam.wxml-->
-<text>pages/exam/exam.wxml</text>
+
+<view class="header">
+  <text>pages/exam/exam.wxml</text>
+</view>
+<view class="body"></view>
+<view class="footer">
+    <view>
+      <image src="{{materialimages[3].image}}" bindtap="gotoindex"></image>
+      <text>首页</text>
+    </view>
+    <view>
+      <image src="{{materialimages[6].image}}" bindtap="gotoaccident"></image>
+      <text>真实案例</text>
+    </view>
+    <view>
+      <image src="{{materialimages[6].image}}" bindtap="gotogift"></image>
+      <text>积分商城</text>
+    </view>
+    <view>
+      <image src="{{materialimages[5].image}}" bindtap="gotoexam"></image>
+      <text>每日答题</text>
+    </view>
+    <view>
+      <image src="{{materialimages[4].image}}" bindtap="gotomy" data-user="{{code._id}}"></image>
+      <text>我的</text>
+    </view>
+</view>

@@ -1,14 +1,14 @@
 /**app.wxss**/
 
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+
+.header{
+  height: 400rpx;
+}
+.body{
+  margin: 25rpx 25rpx 0 25rpx;
+  width: 700rpx;
+  height: 787rpx;
+}
 .footer{
   margin-top: 10px;
   width: 750rpx;
