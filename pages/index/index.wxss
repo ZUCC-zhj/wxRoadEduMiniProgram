@@ -1,3 +1,6 @@
+.container{
+  height: 1500rpx;
+}
 .header{
   height: 400rpx;
 }
@@ -101,11 +104,4 @@
 .banners image{
   width: 100%;
   height: 100%;
-}
-.footer{
-  position: fixed;
-  bottom: 0;
-  height: 200rpx;
-  width: 100%;
-  background-color: white;
 }

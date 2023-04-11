@@ -3,7 +3,8 @@ const app = getApp()
 Page({
   data: {
     trafficsigntype:'',
-    materialimages:''
+    materialimages:'',
+    predict:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -64,6 +65,23 @@ Page({
         console.log(this.data)
     }).catch(res=>{
       console.log('失败',res)
+    })
+  },
+  getPredict(){
+    let data = {
+      
+    }
+    wx.request({
+      url: 'https://450789dd.r1.cpolar.top', //仅为示例，并非真实的接口地址
+      method: 'POST',
+    data: this.data.materialimages[0],
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
+    success (res) {
+      console.log('访问成功')
+      console.log(res.data)
+    }
     })
   },
   gotoaccident(){

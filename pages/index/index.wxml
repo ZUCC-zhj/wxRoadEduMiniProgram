@@ -1,4 +1,5 @@
-<view class="header">
+<view class="container">
+  <view class="header">
     <swiper class="banners" indicator-dots indicator-color="ivory" autoplay interval="3000" indicator-active-color="#d43c33">
       <swiper-item>
         <image src="{{materialimages[1].image}}"></image>
@@ -40,13 +41,13 @@
    
   </view>
   <view class="advertisement">
-    <view class="discount" >
+    <!-- <view class="discount" >
       <camera device-position="back" flash="off" binderror="error" style="width: 80%; height: 200rpx;">
       </camera>
       <button type="primary" bindtap="takePhoto">拍照</button>
       <view>预览</view>
       <image mode="widthFix" src="{{src}}"></image>
-    </view>
+    </view> -->
  
   </view>
 
@@ -73,4 +74,6 @@
       <text>我的</text>
     </view>
 </view>
+</view>
+
 

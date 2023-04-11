@@ -2,7 +2,11 @@
 <view class="header">
   <text>pages/accident/accident.wxml</text>
 </view>
-<view class="body"></view>
+<view class="body">
+  <view class="videoplay">
+  <video src="{{media[0].media}}"></video>
+  </view>
+</view>
 <view class="footer">
     <view>
       <image src="{{materialimages[3].image}}" bindtap="gotoindex"></image>

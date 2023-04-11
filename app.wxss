@@ -1,5 +1,7 @@
 /**app.wxss**/
-
+.container{
+  height: 1500rpx;
+}
 
 .header{
   height: 400rpx;
@@ -10,9 +12,12 @@
   height: 787rpx;
 }
 .footer{
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  background-color: white;
   margin-top: 10px;
   width: 750rpx;
-  bottom: 0px;
   height: 150rpx;
   display: flex;
   justify-content: space-around;

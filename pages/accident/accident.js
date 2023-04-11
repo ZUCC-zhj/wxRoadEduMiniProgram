@@ -3,13 +3,14 @@ const app = getApp()
 Page({
   data: {
     trafficsigntype:'',
-    materialimages:''
+    materialimages:'',
+    media:''
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.getImages()
+    this.getMedia()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -60,6 +61,19 @@ Page({
         console.log('获取图片素材云函数调用成功',res)
         this.setData({
           materialimages: res.result.data
+        })
+        console.log(this.data)
+    }).catch(res=>{
+      console.log('失败',res)
+    })
+  },
+  getMedia(){
+    wx.cloud.callFunction({
+      name: 'getMedia'
+    }).then(res =>{
+        console.log('获取视频云函数调用成功',res.result.data)
+        this.setData({
+          media: res.result.data
         })
         console.log(this.data)
     }).catch(res=>{
