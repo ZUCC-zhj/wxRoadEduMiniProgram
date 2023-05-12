@@ -1,1 +1,41 @@
 /* pages/gift/gift.wxss */
+.giftcontainer{
+  display: flex;
+  flex-direction:row;
+  width: 750rpx;
+  height: 1500rpx;
+}
+.unitcontainer{
+  width: 330rpx;
+  height: 600rpx;
+  display: flex;
+  flex-direction: column;
+  float: left;
+}
+.unitimg{
+  width: 330rpx;
+  height: 350rpx;
+  text-align: center;
+}
+.unitimg image{
+  max-width: 330rpx;
+  max-height: 350rpx;
+}
+.unittext{
+  display: flex;
+  width: 330rpx;
+  height: 200rpx;
+  flex-direction: column;
+}
+.unitcontext{
+  
+}
+.unitcontainer text{
+ margin: auto;
+}
+.unitcontext{
+  height: 65rpx;
+  overflow: hidden;
+  color: gray;
+  font-size: 15px;
+}

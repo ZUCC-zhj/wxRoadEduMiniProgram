@@ -41,14 +41,10 @@
    
   </view>
   <view class="advertisement">
-    <!-- <view class="discount" >
-      <camera device-position="back" flash="off" binderror="error" style="width: 80%; height: 200rpx;">
-      </camera>
-      <button type="primary" bindtap="takePhoto">拍照</button>
-      <view>预览</view>
-      <image mode="widthFix" src="{{src}}"></image>
-    </view> -->
- 
+    <button type="primary" bindtap="chooseImage">拍照上传</button>
+    <view class="takephoto">
+      <image src="{{photoUrl}}"></image>
+    </view>
   </view>
 
 </view>
@@ -62,7 +58,7 @@
       <text>真实案例</text>
     </view>
     <view>
-      <image src="{{materialimages[6].image}}" bindtap="gotogift"></image>
+      <image src="{{materialimages[7].image}}" bindtap="gotogift"></image>
       <text>积分商城</text>
     </view>
     <view>

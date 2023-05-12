@@ -14,7 +14,7 @@
       <text>真实案例</text>
     </view>
     <view>
-      <image src="{{materialimages[6].image}}" bindtap="gotogift"></image>
+      <image src="{{materialimages[7].image}}" bindtap="gotogift"></image>
       <text>积分商城</text>
     </view>
     <view>

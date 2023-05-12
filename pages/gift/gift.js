@@ -3,14 +3,18 @@ const app = getApp()
 Page({
   data: {
     trafficsigntype:'',
-    materialimages:'',
-    predict:''
+    materialimages:"",
+    predict:'',
+    base64Data:"",
+    tempFileURL:'',
+    scoregift:[]
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     this.getImages()
+    this.getScoregift()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -67,22 +71,77 @@ Page({
       console.log('失败',res)
     })
   },
-  getPredict(){
-    let data = {
-      
-    }
-    wx.request({
-      url: 'https://450789dd.r1.cpolar.top', //仅为示例，并非真实的接口地址
-      method: 'POST',
-    data: this.data.materialimages[0],
-    header: {
-      'content-type': 'application/json' // 默认值
-    },
-    success (res) {
-      console.log('访问成功')
-      console.log(res.data)
-    }
+  addImagePath(fileId) {
+    console.log(fileId)
+    wx.cloud.getTempFileURL({
+      fileList: [fileId],
+      success: res => {
+        this.setData({
+          tempFileURL: res.fileList[0].tempFileURL
+        })
+        console.log("获取url地址："+this.data.tempFileURL);
+      },
+      fail: console.error
     })
+  },
+  getScoregift(){
+    wx.cloud.callFunction({
+      name: 'getScoregift'
+    }).then(res =>{
+        console.log('获取全部积分商品云函数调用成功',res)
+        this.setData({
+          scoregift: res.result.data
+        })
+    }).catch(res=>{
+      console.log('失败',res)
+    })
+  },
+  getPredict(){
+  //  this.addImagePath(this.data.materialimages[0].image);
+    // wx.getFileSystemManager().readFile({
+    //   filePath: "https://636c-cloud1-1ga64t1b02464356…vb3xubm466zwq0sq60b19gz57x_.png not absolute path",
+    //   encoding: 'base64',
+    //   success: function(res) {
+    //     var base64Data = res.data;
+    //     // 在此处将base64Data传递给API接口
+    //     wx.request({
+    //       url: "https://457bae3.r11.cpolar.top",
+    //       method: 'POST',
+    //       data: {
+    //         image: base64Data
+    //       },
+    //       header: {
+    //         'Content-Type': 'application/json'
+    //       },
+    //       success: function (res) {
+    //         console.log(res.data);
+    //         // 在此处处理API返回的预测结果
+    //       },
+    //       fail: function (res) {
+    //         console.log(res);
+    //         // 在此处处理API请求失败的情况
+    //       }
+    //     });
+    //   }
+    // });
+    wx.request({
+      url: "https://c2d9fc8.r7.cpolar.top",
+      method: 'POST',
+      data: {
+        image: "https://636c-cloud1-1ga64t1b02464356-1316677867.tcb.qcloud.la/cloudbase-cms/upload/2023-02-27/2cnvevvb3xubm466zwq0sq60b19gz57x_.png"
+      },
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        // 在此处处理API返回的预测结果
+      },
+      fail: function (res) {
+        console.log(res);
+        // 在此处处理API请求失败的情况
+      }
+    });
   },
   gotoaccident(){
     wx.redirectTo({

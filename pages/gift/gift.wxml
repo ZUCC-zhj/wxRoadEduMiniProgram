@@ -4,7 +4,24 @@
   <button bindtap="getPredict">hello</button>
   <text>pages/gift/gift.wxml</text>
 </view>
-<view class="body"></view>
+<view class="body">
+  <scroll-view class="giftcontainer" scroll-y="true" scroll-x="true">
+      <view class="unitcontainer" wx:for="{{scoregift}}">
+        <view class="unitimg">
+          <image  src="{{item.image}}"></image>
+        </view>
+        <view class="unittext">
+          <view><text class="title" style="font-size: 20px;color: black;font-family: Georgia, 'Times New Roman', Times, serif;font-weight: 550;">{{item.title}}</text>
+            <view><text class="unitcontext"style="display:flex; height: 80rpx;">{{item.context}}</text></view>
+            <view style="display: flex; align-items: center;">
+              <text class="price" style="font-size: 15px;font-weight: 400;">所需积分:{{item.score}}</text>
+              <text style="font-size: 15px;width: 120rpx;background-color: rgb(218, 218, 218);">剩余: {{item.left}}</text>
+          </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+</view>
 <view class="footer">
     <view>
       <image src="{{materialimages[3].image}}" bindtap="gotoindex"></image>
@@ -15,7 +32,7 @@
       <text>真实案例</text>
     </view>
     <view>
-      <image src="{{materialimages[6].image}}" bindtap="gotogift"></image>
+      <image src="{{materialimages[7].image}}" bindtap="gotogift"></image>
       <text>积分商城</text>
     </view>
     <view>

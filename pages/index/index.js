@@ -3,7 +3,8 @@ const app = getApp()
 Page({
   data:{
     trafficsigntype:'',
-    materialimages:''
+    materialimages:'',
+    photoUrl:''
   },
   onLoad(){
     this.getType(),
@@ -74,4 +75,45 @@ Page({
       console.log('失败',res)
     })
   },
+  chooseImage: function() {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: res => {
+        const tempFilePaths = res.tempFilePaths
+        wx.getFileSystemManager().readFile({
+          filePath: tempFilePaths[0],
+          encoding: 'base64',
+          success: res => {
+            const fileContent = res.data
+            wx.cloud.callFunction({
+              name: 'uploadImage',
+              data: { fileContent },
+              success: res => {
+                console.log('上传成功', res)
+                const fileId = res.result
+                // 获取图片链接，展示图片
+                this.getPhotoUrl(fileId)
+              },
+              fail: console.error
+            })
+          },
+          fail: console.error
+        })
+      },
+      fail: console.error
+    })
+  },
+  getPhotoUrl: function(fileId) {
+    wx.cloud.getTempFileURL({
+      fileList: [fileId],
+      success: res => {
+        this.setData({
+          photoUrl:res.fileList[0].tempFileURL + '?t=' + Math.random()
+        })
+      },
+      fail: console.error
+    })
+  }
 })
