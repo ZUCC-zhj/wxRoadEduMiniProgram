@@ -81,6 +81,12 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: res => {
+        var tempFPaths = res.tempFilePaths[0];
+        // 将图片转换为base64编码
+        var base64 = wx.getFileSystemManager().readFileSync(tempFPaths, "base64");
+        // 在这里可以使用base64编码向服务器发送请求
+        console.log("这里是图片64编码: "+base64)
+        this.getPredict(base64)
         const tempFilePaths = res.tempFilePaths
         wx.getFileSystemManager().readFile({
           filePath: tempFilePaths[0],
@@ -115,5 +121,25 @@ Page({
       },
       fail: console.error
     })
+  },
+  getPredict(imagesBase){
+    wx.request({
+      url: "https://7d61f1ba.r9.cpolar.top/predict/Trafficsign-Predict",
+      method: 'POST',
+      data: {
+        images: imagesBase
+      },
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        // 在此处处理API返回的预测结果
+      },
+      fail: function (res) {
+        console.log(res);
+        // 在此处处理API请求失败的情况
+      }
+    });
   }
 })

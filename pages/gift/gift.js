@@ -97,38 +97,12 @@ Page({
     })
   },
   getPredict(){
-  //  this.addImagePath(this.data.materialimages[0].image);
-    // wx.getFileSystemManager().readFile({
-    //   filePath: "https://636c-cloud1-1ga64t1b02464356…vb3xubm466zwq0sq60b19gz57x_.png not absolute path",
-    //   encoding: 'base64',
-    //   success: function(res) {
-    //     var base64Data = res.data;
-    //     // 在此处将base64Data传递给API接口
-    //     wx.request({
-    //       url: "https://457bae3.r11.cpolar.top",
-    //       method: 'POST',
-    //       data: {
-    //         image: base64Data
-    //       },
-    //       header: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       success: function (res) {
-    //         console.log(res.data);
-    //         // 在此处处理API返回的预测结果
-    //       },
-    //       fail: function (res) {
-    //         console.log(res);
-    //         // 在此处处理API请求失败的情况
-    //       }
-    //     });
-    //   }
-    // });
+    var base64 = wx.getFileSystemManager().readFileSync("https://636c-cloud1-1ga64t1b02464356-1316677867.tcb.qcloud.la/cloudbase-cms/upload/2023-02-27/2cnvevvb3xubm466zwq0sq60b19gz57x_.png", "base64");
     wx.request({
-      url: "https://c2d9fc8.r7.cpolar.top",
+      url: "https://7d61f1ba.r9.cpolar.top/predict/Trafficsign-Predict",
       method: 'POST',
       data: {
-        image: "https://636c-cloud1-1ga64t1b02464356-1316677867.tcb.qcloud.la/cloudbase-cms/upload/2023-02-27/2cnvevvb3xubm466zwq0sq60b19gz57x_.png"
+        image: base64
       },
       headers: {
         'Content-Type': 'application/json'
